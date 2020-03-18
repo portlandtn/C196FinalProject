@@ -8,9 +8,12 @@ import androidx.room.PrimaryKey;
 import java.util.Date;
 
 @Entity(tableName = "term_table")
+public
 class Term {
 
     @PrimaryKey
+    private Integer id;
+
     @NonNull
     @ColumnInfo(name = "title")
     private String mTitle;
@@ -30,18 +33,21 @@ class Term {
     }
 
     @NonNull
-    public String getTitle() {
+    public String getmTitle() {
         return this.mTitle;
     }
 
     @NonNull
-    public Date getStartDate() {
+    public Date getmStartDate() {
         return this.mStartDate;
     }
 
     @NonNull
-    public Date getEndDate() {
+    public Date getmEndDate() {
         return this.mEndDate;
     }
+
+    @NonNull
+    public Integer getId() {return this.id; }
 
 }

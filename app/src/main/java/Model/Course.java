@@ -16,7 +16,7 @@ import java.util.Date;
                 parentColumns = "id",
                 childColumns = "mentor_id")
 })
-class Course {
+public class Course {
 
     @PrimaryKey(autoGenerate = true)
     private Integer id;

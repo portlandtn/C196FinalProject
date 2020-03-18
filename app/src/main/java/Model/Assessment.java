@@ -11,7 +11,7 @@ import java.util.Date;
 @Entity(tableName = "assessment_table", foreignKeys = @ForeignKey(entity = Course.class,
 parentColumns = "id",
 childColumns = "courseId"))
-class Assessment {
+public class Assessment {
 
     @PrimaryKey
     @NonNull
@@ -29,11 +29,16 @@ class Assessment {
     @ColumnInfo(name = "end_date")
     private Date mEndDate;
 
-    Assessment(@NonNull Integer id, @NonNull String mTitle, @NonNull Date mStartDate, @NonNull Date endDate) {
+    @NonNull
+    @ColumnInfo(name = "courseId")
+    private Integer mCourseId;
+
+    Assessment(@NonNull Integer id, @NonNull String mTitle, @NonNull Date mStartDate, @NonNull Date endDate, @NonNull Integer mCourseId) {
         this.id = id;
         this.mTitle = mTitle;
         this.mStartDate = mStartDate;
         mEndDate = endDate;
+        this.mCourseId = mCourseId;
     }
 
     @NonNull
@@ -56,4 +61,8 @@ class Assessment {
         return mEndDate;
     }
 
+    @NonNull
+    public Integer getmCourseId() {
+        return mCourseId;
+    }
 }

@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "mentor_table", foreignKeys = @ForeignKey(entity = Course.class,
 parentColumns = "id",
 childColumns = "courseId"))
-class Mentor {
+public class Mentor {
 
     @PrimaryKey
     private Integer id;
