@@ -31,9 +31,9 @@ public abstract class WGUTermRoomDatabase extends RoomDatabase {
 
     private static volatile WGUTermRoomDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
-    static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
+    public static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    static WGUTermRoomDatabase getDatabase(final Context context) {
+    public static WGUTermRoomDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (WGUTermRoomDatabase.class) {
                 if (INSTANCE == null) {

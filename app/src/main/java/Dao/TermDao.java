@@ -21,12 +21,12 @@ public interface TermDao {
     LiveData<Term> getTerm(Integer termId);
 
     @Insert(entity = Term.class)
-    void insertTerm(Term term);
+    void insert(Term term);
 
     @Update(entity = Term.class)
-    void updateTerm(Term term);
+    void update(Term term);
 
     @Delete(entity = Term.class)
-    void deleteTerm(Term term);
+    void delete(Term term);
 
 }

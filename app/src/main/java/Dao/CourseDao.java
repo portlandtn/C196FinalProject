@@ -17,17 +17,16 @@ public interface CourseDao {
     @Query("SELECT * FROM course_table WHERE id = :courseId")
     LiveData<Course> getCourse(Integer courseId);
 
-    @Query("SELECT * FROM course_table WHERE term_title = :termTitle")
-    LiveData<List<Course>> getCoursesForTerm(String termTitle);
-
+    @Query("SELECT * FROM course_table WHERE id = :id")
+    LiveData<List<Course>> getCoursesForTerm(Integer id);
 
     @Delete(entity = Course.class)
-    void deleteCourse(Course course);
+    void delete(Course course);
 
     @Update(entity = Course.class)
-    void updateCourse(Course course);
+    void update(Course course);
 
     @Insert(entity = Course.class)
-    void insertCourse(Course course);
+    void insert(Course course);
 
 }

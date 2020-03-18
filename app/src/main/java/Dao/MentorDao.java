@@ -14,18 +14,15 @@ import Model.Mentor;
 @Dao
 public interface MentorDao {
 
-    @Query("SELECT * FROM mentor_table WHERE id = :mentorId")
-    LiveData<Mentor> getMentor(Integer mentorId);
-
-    @Query("SELECT * FROM mentor_table WHERE courseId = :courseId")
-    LiveData<List<Mentor>> getMentorForCourse(Integer courseId);
+    @Query("SELECT * FROM mentor_table WHERE id = :courseId")
+    LiveData<Mentor> getMentor(Integer courseId);
 
     @Insert(entity = Mentor.class)
-    void insertMentor(Mentor mentor);
+    void insert(Mentor mentor);
 
     @Update(entity = Mentor.class)
-    void updateMentor(Mentor mentor);
+    void update(Mentor mentor);
 
     @Delete(entity = Mentor.class)
-    void deleteMentor(Mentor mentor);
+    void delete(Mentor mentor);
 }

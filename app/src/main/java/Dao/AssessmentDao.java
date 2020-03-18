@@ -21,12 +21,12 @@ public interface AssessmentDao {
     LiveData<List<Assessment>> getAssessmentsForCourse(Integer courseId);
 
     @Insert(entity = Assessment.class)
-    void insertAssessment(Assessment assessment);
+    void insert(Assessment assessment);
 
     @Update(entity = Assessment.class)
-    void updateAssessment(Assessment assessment);
+    void update(Assessment assessment);
 
     @Delete(entity = Assessment.class)
-    void deleteAssessment(Assessment assessment);
+    void delete(Assessment assessment);
 
 }
