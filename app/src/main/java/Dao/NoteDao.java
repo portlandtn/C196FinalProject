@@ -1,6 +1,5 @@
 package Dao;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -22,7 +21,7 @@ public interface NoteDao {
     @Query("SELECT * FROM note_table WHERE assessment_id = :assessmentId")
     LiveData<List<Note>> getNoteForAssessments(Integer assessmentId);
 
-    @Insert(entity = Course.class)
+    @Insert(entity = Note.class)
     void insert(Note note);
 
     @Delete(entity = Note.class)

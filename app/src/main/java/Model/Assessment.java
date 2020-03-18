@@ -47,22 +47,22 @@ public class Assessment {
     }
 
     @NonNull
-    public String getmTitle() {
+    public String getTitle() {
         return mTitle;
     }
 
     @NonNull
-    public Date getmStartDate() {
+    public Date getStartDate() {
         return mStartDate;
     }
 
     @NonNull
-    public Date getmEndDate() {
+    public Date getEndDate() {
         return mEndDate;
     }
 
     @NonNull
-    public Integer getmCourseId() {
+    public Integer getCourseId() {
         return mCourseId;
     }
 }

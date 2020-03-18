@@ -38,12 +38,12 @@ public class Mentor {
     }
 
     @NonNull
-    public String getmName() {
+    public String getName() {
         return mName;
     }
 
     @NonNull
-    public String getmPhone() {
+    public String getPhone() {
         return mPhone;
     }
 
@@ -53,7 +53,15 @@ public class Mentor {
     }
 
     @NonNull
-    public Integer getmCourseId() {
+    public Integer getCourseId() {
         return mCourseId;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

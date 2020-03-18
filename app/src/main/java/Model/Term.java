@@ -33,21 +33,24 @@ class Term {
     }
 
     @NonNull
-    public String getmTitle() {
+    public String getTitle() {
         return this.mTitle;
     }
 
     @NonNull
-    public Date getmStartDate() {
+    public Date getStartDate() {
         return this.mStartDate;
     }
 
     @NonNull
-    public Date getmEndDate() {
+    public Date getEndDate() {
         return this.mEndDate;
     }
 
     @NonNull
     public Integer getId() {return this.id; }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Entity(tableName = "course_table", foreignKeys = {
         @ForeignKey(entity = Term.class,
-                parentColumns = "title",
+                parentColumns = "id",
                 childColumns = "term_title"),
         @ForeignKey(entity = Mentor.class,
                 parentColumns = "id",
@@ -55,27 +55,27 @@ public class Course {
     }
 
     @NonNull
-    public String getmTitle() {
+    public String getTitle() {
         return this.mTitle;
     }
 
     @NonNull
-    public Date getmStartDate() {
+    public Date getStartDate() {
         return this.mStartDate;
     }
 
     @NonNull
-    public Date getmEndDate() {
+    public Date getEndDate() {
         return this.mEndDate;
     }
 
     @NonNull
-    public String getmTermTitle() {
+    public String getTermTitle() {
         return this.mTermTitle;
     }
 
     @NonNull
-    public Integer getmMentorId() {
+    public Integer getMentorId() {
         return this.mMentorId;
     }
 

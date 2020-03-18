@@ -37,12 +37,12 @@ public class Note {
     }
 
     @NonNull
-    public String getmNote() {
+    public String getNote() {
         return this.mNote;
     }
 
     @NonNull
-    public Integer getmAssessmentId() {
+    public Integer getAssessmentId() {
         return mAssessmentId;
     }
 }
