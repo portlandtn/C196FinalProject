@@ -12,28 +12,28 @@ import Database.WGUTermRoomDatabase;
 import Model.Assessment;
 import Model.Note;
 
-class NoteRepository {
+public class NoteRepository {
 
     private NoteDao mNoteDao;
     private LiveData<List<Note>> mAllNotesForAssessment;
     private LiveData<Note> mNoteFromNoteId;
 
-    NoteRepository(Application application) {
+    public NoteRepository(Application application) {
         WGUTermRoomDatabase db = WGUTermRoomDatabase.getDatabase(application);
         mNoteDao = db.noteDao();
         mAllNotesForAssessment = mNoteDao.getNoteForAssessments(1); // Fix ME
         mNoteFromNoteId = mNoteDao.getNote(1); // Fix ME!!!!
     }
 
-    LiveData<List<Note>> getAllNotesForAssessment() {
+    public LiveData<List<Note>> getAllNotesForAssessment() {
         return mAllNotesForAssessment;
     }
 
-    LiveData<Note> getNote() {
+    public LiveData<Note> getNote() {
         return mNoteFromNoteId;
     }
 
-    void insert(final Note note) {
+    public void insert(final Note note) {
         WGUTermRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
@@ -42,7 +42,7 @@ class NoteRepository {
         });
     }
 
-    void update(final Note note) {
+    public void update(final Note note) {
         WGUTermRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
@@ -51,7 +51,7 @@ class NoteRepository {
         });
     }
 
-    void delete(final Note note) {
+    public void delete(final Note note) {
         WGUTermRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {

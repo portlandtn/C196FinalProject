@@ -10,28 +10,28 @@ import Dao.TermDao;
 import Database.WGUTermRoomDatabase;
 import Model.Term;
 
-class TermRepository {
+public class TermRepository {
 
     private TermDao mTermDao;
     private LiveData<List<Term>> mAllTerms;
     private LiveData<Term> mCurrentTerm;
 
-    TermRepository(Application application) {
+    public TermRepository(Application application) {
         WGUTermRoomDatabase db = WGUTermRoomDatabase.getDatabase(application);
         mTermDao = db.termDao();
         mAllTerms = mTermDao.getAllTerms();
         mCurrentTerm = mTermDao.getTerm(1); // Fix ME!!!!
     }
 
-    LiveData<List<Term>> getAllTerms() {
+    public LiveData<List<Term>> getAllTerms() {
         return mAllTerms;
     }
 
-    LiveData<Term> getCurrentTerm() {
+    public LiveData<Term> getCurrentTerm() {
         return mCurrentTerm;
     }
 
-    void insert(final Term term) {
+    public void insert(final Term term) {
         WGUTermRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
@@ -40,7 +40,7 @@ class TermRepository {
         });
     }
 
-    void update(final Term term) {
+    public void update(final Term term) {
         WGUTermRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
@@ -49,7 +49,7 @@ class TermRepository {
         });
     }
 
-    void delete(final Term term) {
+    public void delete(final Term term) {
         WGUTermRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {

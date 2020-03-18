@@ -8,22 +8,22 @@ import Dao.MentorDao;
 import Database.WGUTermRoomDatabase;
 import Model.Mentor;
 
-class MentorRepository {
+public class MentorRepository {
 
     private MentorDao mMentorDao;
     private LiveData<Mentor> mMentorFromCourseId;
 
-    MentorRepository(Application application) {
+    public MentorRepository(Application application) {
         WGUTermRoomDatabase db = WGUTermRoomDatabase.getDatabase(application);
         mMentorDao = db.mentorDao();
         mMentorFromCourseId = mMentorDao.getMentor(1); // Fix ME!!!!
     }
 
-    LiveData<Mentor> getMentorFromCourseId() {
+    public LiveData<Mentor> getMentorFromCourseId() {
         return mMentorFromCourseId;
     }
 
-    void insert(final Mentor mentor) {
+    public void insert(final Mentor mentor) {
         WGUTermRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
@@ -32,7 +32,7 @@ class MentorRepository {
         });
     }
 
-    void update(final Mentor mentor) {
+    public void update(final Mentor mentor) {
         WGUTermRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
@@ -41,7 +41,7 @@ class MentorRepository {
         });
     }
 
-    void delete(final Mentor mentor) {
+    public void delete(final Mentor mentor) {
         WGUTermRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {

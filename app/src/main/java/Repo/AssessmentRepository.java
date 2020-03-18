@@ -10,28 +10,28 @@ import Dao.AssessmentDao;
 import Database.WGUTermRoomDatabase;
 import Model.Assessment;
 
-class AssessmentRepository {
+public class AssessmentRepository {
 
     private AssessmentDao mAssessmentDao;
     private LiveData<List<Assessment>> mAllAssessmentsForCourse;
     private LiveData<Assessment> mCurrentAssessment;
 
-    AssessmentRepository(Application application) {
+    public AssessmentRepository(Application application) {
         WGUTermRoomDatabase db = WGUTermRoomDatabase.getDatabase(application);
         mAssessmentDao = db.assessmentDao();
         mAllAssessmentsForCourse = mAssessmentDao.getAssessmentsForCourse(1); // Fix ME
         mCurrentAssessment = mAssessmentDao.getAssessment(1); // Fix ME!!!!
     }
 
-    LiveData<List<Assessment>> getAssessmentsForCourse() {
+    public LiveData<List<Assessment>> getAssessmentsForCourse() {
         return mAllAssessmentsForCourse;
     }
 
-    LiveData<Assessment> getAssessment() {
+    public LiveData<Assessment> getAssessment() {
         return mCurrentAssessment;
     }
 
-    void insert(final Assessment assessment) {
+    public void insert(final Assessment assessment) {
         WGUTermRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
@@ -40,7 +40,7 @@ class AssessmentRepository {
         });
     }
 
-    void update(final Assessment assessment) {
+    public void update(final Assessment assessment) {
         WGUTermRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
@@ -49,7 +49,7 @@ class AssessmentRepository {
         });
     }
 
-    void delete(final Assessment assessment) {
+    public void delete(final Assessment assessment) {
         WGUTermRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {

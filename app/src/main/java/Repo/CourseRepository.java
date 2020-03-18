@@ -10,28 +10,28 @@ import Dao.CourseDao;
 import Database.WGUTermRoomDatabase;
 import Model.Course;
 
-class CourseRepository {
+public class CourseRepository {
 
     private CourseDao mCourseDao;
     private LiveData<Course> mCourseFromCourseId;
     private LiveData<List<Course>> mCourseFromTermId;
 
-    CourseRepository(Application application) {
+    public CourseRepository(Application application) {
         WGUTermRoomDatabase db = WGUTermRoomDatabase.getDatabase(application);
         mCourseDao = db.courseDao();
         mCourseFromCourseId = mCourseDao.getCourse(1); // Fix ME
         mCourseFromTermId = mCourseDao.getCoursesForTerm(1); // Fix ME!!!!
     }
 
-    LiveData<List<Course>> getCoursesFromTermId() {
+    public LiveData<List<Course>> getCoursesFromTermId() {
         return mCourseFromTermId;
     }
 
-    LiveData<Course> getCourse() {
+    public LiveData<Course> getCourse() {
         return mCourseFromCourseId;
     }
 
-    void insert(final Course course) {
+    public void insert(final Course course) {
         WGUTermRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
@@ -40,7 +40,7 @@ class CourseRepository {
         });
     }
 
-    void update(final Course course) {
+    public void update(final Course course) {
         WGUTermRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
@@ -49,7 +49,7 @@ class CourseRepository {
         });
     }
 
-    void delete(final Course course) {
+    public void delete(final Course course) {
         WGUTermRoomDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
             public void run() {
