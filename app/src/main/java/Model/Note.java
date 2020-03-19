@@ -4,11 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "note_table", foreignKeys = @ForeignKey(entity = Assessment.class,
-parentColumns = "id",
-childColumns = "assessment_id"))
+@Entity(tableName = "note_table",
+        foreignKeys = @ForeignKey(entity = Assessment.class,
+        parentColumns = "id",
+        childColumns = "assessment_id"),
+        indices = @Index("assessment_id"))
+
 public class Note {
 
     @PrimaryKey(autoGenerate = true)

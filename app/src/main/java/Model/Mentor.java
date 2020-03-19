@@ -4,11 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "mentor_table", foreignKeys = @ForeignKey(entity = Course.class,
-parentColumns = "id",
-childColumns = "courseId"))
+@Entity(tableName = "mentor_table",
+        foreignKeys = @ForeignKey(entity = Course.class,
+        parentColumns = "id",
+        childColumns = "courseId"),
+indices = @Index("courseId"))
+
 public class Mentor {
 
     @PrimaryKey(autoGenerate = true)
@@ -30,7 +34,7 @@ public class Mentor {
     @ColumnInfo(name = "courseId")
     private Integer mCourseId;
 
-    Mentor(@NonNull String mName, @NonNull String mPhone, @NonNull String email, @NonNull Integer mCourseId) {
+    public Mentor(@NonNull String mName, @NonNull String mPhone, @NonNull String email, @NonNull Integer mCourseId) {
         this.mName = mName;
         this.mPhone = mPhone;
         this.email = email;

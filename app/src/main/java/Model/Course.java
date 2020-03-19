@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
@@ -17,8 +18,9 @@ import DataProvider.DateTypeConverter;
                 childColumns = "term_title"),
         @ForeignKey(entity = Mentor.class,
                 parentColumns = "id",
-                childColumns = "mentor_id")
-})
+                childColumns = "mentor_id")},
+        indices = {@Index("term_title"), @Index("mentor_id")}
+)
 public class Course {
 
     @PrimaryKey(autoGenerate = true)

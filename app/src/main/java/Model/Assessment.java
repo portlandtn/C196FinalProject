@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
@@ -12,9 +13,12 @@ import java.util.Date;
 
 import DataProvider.DateTypeConverter;
 
-@Entity(tableName = "assessment_table", foreignKeys = @ForeignKey(entity = Course.class,
-parentColumns = "id",
-childColumns = "courseId"))
+@Entity(tableName ="assessment_table",
+        foreignKeys = @ForeignKey(entity = Course.class,
+        parentColumns = "id",
+        childColumns = "courseId"),
+        indices = {@Index("courseId")})
+
 public class Assessment {
 
     @PrimaryKey(autoGenerate = true)
@@ -38,7 +42,7 @@ public class Assessment {
     @ColumnInfo(name = "courseId")
     private Integer mCourseId;
 
-    Assessment(@NonNull String mTitle, @NonNull Date mStartDate, @NonNull Date endDate, @NonNull Integer mCourseId) {
+    public Assessment(@NonNull String mTitle, @NonNull Date mStartDate, @NonNull Date endDate, @NonNull Integer mCourseId) {
         this.mTitle = mTitle;
         this.mStartDate = mStartDate;
         mEndDate = endDate;
