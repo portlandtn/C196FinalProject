@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
 import java.util.Date;
+
+import DataProvider.DateTypeConverter;
 
 @Entity(tableName = "term_table")
 public
@@ -18,10 +21,12 @@ class Term {
     @ColumnInfo(name = "title")
     private String mTitle;
 
+    @TypeConverters(DateTypeConverter.class)
     @NonNull
     @ColumnInfo(name = "start_date")
     private Date mStartDate;
 
+    @TypeConverters(DateTypeConverter.class)
     @NonNull
     @ColumnInfo(name = "end_date")
     private Date mEndDate;

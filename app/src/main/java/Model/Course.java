@@ -5,8 +5,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
 import java.util.Date;
+
+import DataProvider.DateTypeConverter;
 
 @Entity(tableName = "course_table", foreignKeys = {
         @ForeignKey(entity = Term.class,
@@ -25,10 +28,12 @@ public class Course {
     @ColumnInfo(name = "title")
     private String mTitle;
 
+    @TypeConverters(DateTypeConverter.class)
     @NonNull
     @ColumnInfo(name = "start_date")
     private Date mStartDate;
 
+    @TypeConverters(DateTypeConverter.class)
     @NonNull
     @ColumnInfo(name = "end_date")
     private Date mEndDate;
