@@ -11,7 +11,7 @@ parentColumns = "id",
 childColumns = "assessment_id"))
 public class Note {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private Integer id;
 
     @NonNull

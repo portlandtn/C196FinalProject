@@ -11,7 +11,7 @@ parentColumns = "id",
 childColumns = "courseId"))
 public class Mentor {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private Integer id;
 
     @NonNull

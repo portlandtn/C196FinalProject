@@ -13,8 +13,7 @@ parentColumns = "id",
 childColumns = "courseId"))
 public class Assessment {
 
-    @PrimaryKey
-    @NonNull
+    @PrimaryKey(autoGenerate = true)
     private Integer id;
 
     @NonNull
@@ -33,8 +32,7 @@ public class Assessment {
     @ColumnInfo(name = "courseId")
     private Integer mCourseId;
 
-    Assessment(@NonNull Integer id, @NonNull String mTitle, @NonNull Date mStartDate, @NonNull Date endDate, @NonNull Integer mCourseId) {
-        this.id = id;
+    Assessment(@NonNull String mTitle, @NonNull Date mStartDate, @NonNull Date endDate, @NonNull Integer mCourseId) {
         this.mTitle = mTitle;
         this.mStartDate = mStartDate;
         mEndDate = endDate;
@@ -65,4 +63,6 @@ public class Assessment {
     public Integer getCourseId() {
         return mCourseId;
     }
+
+    public void setId(Integer id) {this.id = id; }
 }

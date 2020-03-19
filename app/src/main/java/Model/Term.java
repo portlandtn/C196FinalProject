@@ -11,7 +11,7 @@ import java.util.Date;
 public
 class Term {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private Integer id;
 
     @NonNull
