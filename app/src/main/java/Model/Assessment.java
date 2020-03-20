@@ -16,7 +16,8 @@ import DataProvider.DateTypeConverter;
 @Entity(tableName ="assessment_table",
         foreignKeys = @ForeignKey(entity = Course.class,
         parentColumns = "id",
-        childColumns = "courseId"),
+        childColumns = "courseId",
+        onUpdate = ForeignKey.CASCADE),
         indices = {@Index("courseId")})
 
 public class Assessment {

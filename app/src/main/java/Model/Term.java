@@ -11,8 +11,7 @@ import java.util.Date;
 import DataProvider.DateTypeConverter;
 
 @Entity(tableName = "term_table")
-public
-class Term {
+public class Term {
 
     @PrimaryKey(autoGenerate = true)
     private Integer id;

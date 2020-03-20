@@ -10,7 +10,8 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "mentor_table",
         foreignKeys = @ForeignKey(entity = Course.class,
         parentColumns = "id",
-        childColumns = "courseId"),
+        childColumns = "courseId",
+        onUpdate = ForeignKey.CASCADE),
 indices = @Index("courseId"))
 
 public class Mentor {

@@ -15,10 +15,12 @@ import DataProvider.DateTypeConverter;
 @Entity(tableName = "course_table", foreignKeys = {
         @ForeignKey(entity = Term.class,
                 parentColumns = "id",
-                childColumns = "term_title"),
+                childColumns = "term_title",
+                onUpdate = ForeignKey.CASCADE),
         @ForeignKey(entity = Mentor.class,
                 parentColumns = "id",
-                childColumns = "mentor_id")},
+                childColumns = "mentor_id",
+                onUpdate = ForeignKey.CASCADE)},
         indices = {@Index("term_title"), @Index("mentor_id")}
 )
 public class Course {

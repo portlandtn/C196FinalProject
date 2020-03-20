@@ -10,7 +10,8 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "note_table",
         foreignKeys = @ForeignKey(entity = Assessment.class,
         parentColumns = "id",
-        childColumns = "assessment_id"),
+        childColumns = "assessment_id",
+        onUpdate = ForeignKey.CASCADE),
         indices = @Index("assessment_id"))
 
 public class Note {
