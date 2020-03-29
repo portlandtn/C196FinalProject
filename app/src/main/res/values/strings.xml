@@ -13,4 +13,11 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="itemIconDescription">Generic icon</string>
+    <string name="dropped">Dropped:</string>
+    <string name="completed">Completed:</string>
+    <string name="courses">Courses</string>
+    <string name="in_progress">In Progress:</string>
+    <string name="passed">Passed:</string>
+    <string name="failed">Failed</string>
+    <string name="assessments">Assessments</string>
 </resources>
