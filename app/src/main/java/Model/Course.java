@@ -15,13 +15,13 @@ import DataProvider.DateTypeConverter;
 @Entity(tableName = "course_table", foreignKeys = {
         @ForeignKey(entity = Term.class,
                 parentColumns = "id",
-                childColumns = "term_title",
+                childColumns = "term_id",
                 onUpdate = ForeignKey.CASCADE),
         @ForeignKey(entity = Mentor.class,
                 parentColumns = "id",
                 childColumns = "mentor_id",
                 onUpdate = ForeignKey.CASCADE)},
-        indices = {@Index("term_title"), @Index("mentor_id")}
+        indices = {@Index("term_id"), @Index("mentor_id")}
 )
 public class Course {
 
@@ -43,18 +43,18 @@ public class Course {
     private Date mEndDate;
 
     @NonNull
-    @ColumnInfo(name = "term_title")
-    private String mTermTitle;
+    @ColumnInfo(name = "term_id")
+    private Integer mTermId;
 
     @NonNull
     @ColumnInfo(name = "mentor_id")
     private Integer mMentorId;
 
-    public Course(@NonNull String title, @NonNull Date startDate, @NonNull Date endDate, @NonNull String termTitle, @NonNull Integer mentorId) {
+    public Course(@NonNull String title, @NonNull Date startDate, @NonNull Date endDate, @NonNull Integer termId, @NonNull Integer mentorId) {
         this.mTitle = title;
         this.mStartDate = startDate;
         this.mEndDate = endDate;
-        this.mTermTitle = termTitle;
+        this.mTermId = termId;
         this.mMentorId = mentorId;
     }
 
@@ -79,8 +79,8 @@ public class Course {
     }
 
     @NonNull
-    public String getTermTitle() {
-        return this.mTermTitle;
+    public Integer getTermId() {
+        return this.mTermId;
     }
 
     @NonNull
@@ -91,4 +91,5 @@ public class Course {
     public void setId(Integer id) {
         this.id = id;
     }
+
 }

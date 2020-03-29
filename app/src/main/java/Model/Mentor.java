@@ -7,12 +7,7 @@ import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "mentor_table",
-        foreignKeys = @ForeignKey(entity = Course.class,
-        parentColumns = "id",
-        childColumns = "courseId",
-        onUpdate = ForeignKey.CASCADE),
-indices = @Index("courseId"))
+@Entity(tableName = "mentor_table")
 
 public class Mentor {
 
@@ -31,15 +26,10 @@ public class Mentor {
     @ColumnInfo(name = "email")
     private String email;
 
-    @NonNull
-    @ColumnInfo(name = "courseId")
-    private Integer mCourseId;
-
-    public Mentor(@NonNull String mName, @NonNull String mPhone, @NonNull String email, @NonNull Integer mCourseId) {
+    public Mentor(@NonNull String mName, @NonNull String mPhone, @NonNull String email) {
         this.mName = mName;
         this.mPhone = mPhone;
         this.email = email;
-        this.mCourseId = mCourseId;
     }
 
     @NonNull
@@ -58,10 +48,6 @@ public class Mentor {
     }
 
     @NonNull
-    public Integer getCourseId() {
-        return mCourseId;
-    }
-
     public Integer getId() {
         return id;
     }
