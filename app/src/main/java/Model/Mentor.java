@@ -1,10 +1,7 @@
 package Model;
 
-import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
-import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "mentor_table")
@@ -12,47 +9,51 @@ import androidx.room.PrimaryKey;
 public class Mentor {
 
     @PrimaryKey(autoGenerate = true)
-    private Integer id;
+    private int id;
 
-    @NonNull
     @ColumnInfo(name = "name")
     private String mName;
 
-    @NonNull
     @ColumnInfo(name = "phone")
     private String mPhone;
 
-    @NonNull
     @ColumnInfo(name = "email")
-    private String email;
+    private String mEmail;
 
-    public Mentor(@NonNull String mName, @NonNull String mPhone, @NonNull String email) {
-        this.mName = mName;
-        this.mPhone = mPhone;
-        this.email = email;
-    }
 
-    @NonNull
-    public String getName() {
-        return mName;
-    }
 
-    @NonNull
-    public String getPhone() {
-        return mPhone;
-    }
-
-    @NonNull
-    public String getEmail() {
-        return email;
-    }
-
-    @NonNull
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
+
+    public String getmName() {
+        return mName;
+    }
+
+    public void setmName(String mName) {
+        this.mName = mName;
+    }
+
+    public String getmPhone() {
+        return mPhone;
+    }
+
+    public void setmPhone(String mPhone) {
+        this.mPhone = mPhone;
+    }
+
+    public String getmEmail() {
+        return mEmail;
+    }
+
+    public void setmEmail(String email) {
+        this.mEmail = email;
+    }
+
+
+
 }

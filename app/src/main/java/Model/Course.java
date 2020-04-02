@@ -1,6 +1,5 @@
 package Model;
 
-import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -26,69 +25,71 @@ import DataProvider.DateTypeConverter;
 public class Course {
 
     @PrimaryKey(autoGenerate = true)
-    private Integer id;
+    private int id;
 
-    @NonNull
     @ColumnInfo(name = "title")
     private String mTitle;
 
     @TypeConverters(DateTypeConverter.class)
-    @NonNull
     @ColumnInfo(name = "start_date")
     private Date mStartDate;
 
     @TypeConverters(DateTypeConverter.class)
-    @NonNull
     @ColumnInfo(name = "end_date")
     private Date mEndDate;
 
-    @NonNull
     @ColumnInfo(name = "term_id")
-    private Integer mTermId;
+    private int mTermId;
 
-    @NonNull
     @ColumnInfo(name = "mentor_id")
-    private Integer mMentorId;
+    private int mMentorId;
 
-    public Course(@NonNull String title, @NonNull Date startDate, @NonNull Date endDate, @NonNull Integer termId, @NonNull Integer mentorId) {
-        this.mTitle = title;
-        this.mStartDate = startDate;
-        this.mEndDate = endDate;
-        this.mTermId = termId;
-        this.mMentorId = mentorId;
+
+    public int getId() {
+        return id;
     }
 
-    @NonNull
-    public Integer getId() {
-        return this.id;
+    public String getmTitle() {
+        return mTitle;
     }
 
-    @NonNull
-    public String getTitle() {
-        return this.mTitle;
+    public void setmTitle(String mTitle) {
+        this.mTitle = mTitle;
     }
 
-    @NonNull
-    public Date getStartDate() {
-        return this.mStartDate;
+    public Date getmStartDate() {
+        return mStartDate;
     }
 
-    @NonNull
-    public Date getEndDate() {
-        return this.mEndDate;
+    public void setmStartDate(Date mStartDate) {
+        this.mStartDate = mStartDate;
     }
 
-    @NonNull
-    public Integer getTermId() {
-        return this.mTermId;
+    public Date getmEndDate() {
+        return mEndDate;
     }
 
-    @NonNull
-    public Integer getMentorId() {
-        return this.mMentorId;
+    public void setmEndDate(Date mEndDate) {
+        this.mEndDate = mEndDate;
     }
 
-    public void setId(Integer id) {
+    public int getmTermId() {
+        return mTermId;
+    }
+
+    public void setmTermId(int mTermId) {
+        this.mTermId = mTermId;
+    }
+
+    public int getmMentorId() {
+        return mMentorId;
+    }
+
+    public void setmMentorId(int mMentorId) {
+        this.mMentorId = mMentorId;
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
 

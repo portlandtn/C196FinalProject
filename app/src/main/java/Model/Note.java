@@ -1,6 +1,5 @@
 package Model;
 
-import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -17,37 +16,35 @@ import androidx.room.PrimaryKey;
 public class Note {
 
     @PrimaryKey(autoGenerate = true)
-    private Integer id;
+    private int id;
 
-    @NonNull
     @ColumnInfo(name = "note")
     private String mNote;
 
-    @NonNull
     @ColumnInfo(name = "assessment_id")
-    private Integer mAssessmentId;
+    private int mAssessmentId;
 
-    public Note(@NonNull String note, @NonNull Integer mAssessmentId) {
-        this.mNote = note;
-        this.mAssessmentId = mAssessmentId;
+    public int getId() {
+        return id;
     }
 
-    @NonNull
-    public Integer getId() {
-        return this.id;
-    }
-
-    public void setId(@NonNull Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    @NonNull
-    public String getNote() {
-        return this.mNote;
+    public String getmNote() {
+        return mNote;
     }
 
-    @NonNull
-    public Integer getAssessmentId() {
+    public void setmNote(String mNote) {
+        this.mNote = mNote;
+    }
+
+    public int getmAssessmentId() {
         return mAssessmentId;
+    }
+
+    public void setmAssessmentId(int mAssessmentId) {
+        this.mAssessmentId = mAssessmentId;
     }
 }
