@@ -9,7 +9,8 @@ import androidx.room.TypeConverters;
 
 import java.util.Date;
 
-import DataProvider.DateTypeConverter;
+import DataProvider.AssessmentStatus;
+import DataProvider.Converter;
 
 @Entity(tableName ="assessment_table",
         foreignKeys = @ForeignKey(entity = Course.class,
@@ -26,16 +27,20 @@ public class Assessment {
     @ColumnInfo(name = "title")
     private String mTitle;
 
-    @TypeConverters(DateTypeConverter.class)
+    @TypeConverters(Converter.class)
     @ColumnInfo(name = "start_date")
     private Date mStartDate;
 
-    @TypeConverters(DateTypeConverter.class)
+    @TypeConverters(Converter.class)
     @ColumnInfo(name = "end_date")
     private Date mEndDate;
 
     @ColumnInfo(name = "courseId")
     private int mCourseId;
+
+    @TypeConverters(Converter.class)
+    @ColumnInfo(name = "assessment_status")
+    private AssessmentStatus mStatus;
 
     public int getId() {
         return id;
@@ -77,4 +82,11 @@ public class Assessment {
         this.mCourseId = mCourseId;
     }
 
+    public AssessmentStatus getmStatus() {
+        return mStatus;
+    }
+
+    public void setmStatus(AssessmentStatus mStatus) {
+        this.mStatus = mStatus;
+    }
 }

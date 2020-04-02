@@ -84,6 +84,7 @@ public class SampleData extends AppCompatActivity {
         course1.setmEndDate(end.getTime());
         course1.setmTermId(term1.getId());
         course1.setmMentorId(mentor1.getId());
+        course1.setmStatus(CourseStatus.PLAN_TO_TAKE);
 
         start.add(Calendar.MONTH, 2);
         end.add(Calendar.MONTH, 2);
@@ -135,7 +136,7 @@ public class SampleData extends AppCompatActivity {
     }
 
     private void populateMentors() {
-        mentor1.setmName("Amanda Hugenkiss");
+        mentor1.setmName("Amanda Huginkiss");
         mentor1.setmPhone("270-493-8182");
         mentor2.setmEmail("man2hugNkiss@fakeNews.com");
 
