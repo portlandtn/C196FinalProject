@@ -5,7 +5,6 @@ import android.content.Context;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
-import java.util.Date;
 
 import Database.WGUTermRoomDatabase;
 import Model.Assessment;
@@ -44,10 +43,10 @@ public class SampleData extends AppCompatActivity {
         // order is important since some objects rely on others existing.
 
         populateTerms();
-        populateMentors();
-        populateCourses();
-        populateAssessments();
-        populateNotes();
+        //populateMentors();
+        //populateCourses();
+        //populateAssessments();
+        //populateNotes();
 
     }
 
@@ -55,19 +54,22 @@ public class SampleData extends AppCompatActivity {
         Calendar start = Calendar.getInstance();
         Calendar end = Calendar.getInstance();
 
-        end.add(Calendar.MONTH, 6);
         term1 = new Term("Spring 2020", start.getTime(), end.getTime());
         db.termDao().insert(term1);
 
-        start.add(Calendar.MONTH, 6);
-        end.add(Calendar.MONTH, 6);
-        term2 = new Term("Fall 2020", start.getTime(), end.getTime());
-        db.termDao().insert(term2);
-
-        start.add(Calendar.MONTH, 6);
-        end.add(Calendar.MONTH, 6);
-        term3 = new Term("Spring 2021", start.getTime(), end.getTime());
-        db.termDao().insert(term3);
+//        end.add(Calendar.MONTH, 6);
+//        term1 = new Term("Spring 2020", start.getTime(), end.getTime());
+//        db.termDao().insert(term1);
+//
+//        start.add(Calendar.MONTH, 6);
+//        end.add(Calendar.MONTH, 6);
+//        term2 = new Term("Fall 2020", start.getTime(), end.getTime());
+//        db.termDao().insert(term2);
+//
+//        start.add(Calendar.MONTH, 6);
+//        end.add(Calendar.MONTH, 6);
+//        term3 = new Term("Spring 2021", start.getTime(), end.getTime());
+//        db.termDao().insert(term3);
     }
 
     private void populateCourses() {

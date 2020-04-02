@@ -1,6 +1,5 @@
 package Dao;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -14,19 +13,25 @@ import Model.Term;
 @Dao
 public interface TermDao {
 
-    @Query("SELECT * FROM term_table")
-    LiveData<List<Term>> getAllTerms();
+    @Query("SELECT * FROM term_table ORDER BY id")
+    List<Term> getAllTerms();
 
     @Query("SELECT * FROM term_table WHERE id = :termId")
-    LiveData<Term> getTerm(Integer termId);
+    Term getTerm(Integer termId);
 
-    @Insert(entity = Term.class)
+    @Insert
     void insert(Term term);
 
-    @Update(entity = Term.class)
+    @Insert
+    void insertAllTerms(Term... terms);
+
+    @Update
     void update(Term term);
 
-    @Delete(entity = Term.class)
+    @Delete
     void delete(Term term);
+
+    @Query("DELETE FROM term_table")
+    void deleteAllTerms();
 
 }

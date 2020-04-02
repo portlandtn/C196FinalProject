@@ -1,6 +1,5 @@
 package Dao;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -9,25 +8,30 @@ import androidx.room.Update;
 
 import java.util.List;
 
-import Model.Course;
 import Model.Note;
 
 @Dao
 public interface NoteDao {
 
     @Query("SELECT * FROM note_table WHERE id = :noteId")
-    LiveData<Note> getNote(Integer noteId);
+    Note getNote(Integer noteId);
 
-    @Query("SELECT * FROM note_table WHERE assessment_id = :assessmentId")
-    LiveData<List<Note>> getNoteForAssessments(Integer assessmentId);
+    @Query("SELECT * FROM note_table WHERE assessment_id = :assessmentId ORDER BY id")
+    List<Note> getNoteForAssessments(Integer assessmentId);
 
-    @Insert(entity = Note.class)
+    @Insert
     void insert(Note note);
 
-    @Delete(entity = Note.class)
+    @Insert
+    void insertAllNotes(Note... notes);
+
+    @Delete
     void delete(Note note);
 
-    @Update(entity = Note.class)
+    @Update
     void update(Note note);
+
+    @Query("DELETE FROM note_table")
+    void deleteAllNotes();
 
 }

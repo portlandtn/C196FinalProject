@@ -1,28 +1,31 @@
 package Dao;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import java.util.List;
-
 import Model.Mentor;
 
 @Dao
 public interface MentorDao {
 
-    @Query("SELECT * FROM mentor_table WHERE id = :courseId")
-    LiveData<Mentor> getMentor(Integer courseId);
+    @Query("SELECT * FROM mentor_table WHERE id = :courseId ORDER BY id")
+    Mentor getMentor(Integer courseId);
 
-    @Insert(entity = Mentor.class)
+    @Insert
     void insert(Mentor mentor);
 
-    @Update(entity = Mentor.class)
+    @Insert
+    void insertAllMentors(Mentor... mentors);
+
+    @Update
     void update(Mentor mentor);
 
-    @Delete(entity = Mentor.class)
+    @Delete
     void delete(Mentor mentor);
+
+    @Query("DELETE FROM mentor_table")
+    void deleteAllMentors();
 }

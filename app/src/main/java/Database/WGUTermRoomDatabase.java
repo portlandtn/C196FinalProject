@@ -6,9 +6,6 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import Dao.AssessmentDao;
 import Dao.CourseDao;
 import Dao.MentorDao;
@@ -29,19 +26,15 @@ public abstract class WGUTermRoomDatabase extends RoomDatabase {
     public abstract NoteDao noteDao();
     public abstract TermDao termDao();
 
-    private static volatile WGUTermRoomDatabase INSTANCE;
-    private static final int NUMBER_OF_THREADS = 4;
-    public static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
+    private static WGUTermRoomDatabase instance;
+    private static final String DB_NAME = "WGU_term_database";
 
-    public static WGUTermRoomDatabase getDatabase(final Context context) {
-        if (INSTANCE == null) {
-            synchronized (WGUTermRoomDatabase.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), WGUTermRoomDatabase.class, "WGU_term_database").build();
-                }
-            }
+    public static synchronized WGUTermRoomDatabase getDatabase(final Context context) {
+        if (instance == null) {
+            instance = Room.databaseBuilder(context.getApplicationContext(), WGUTermRoomDatabase.class, DB_NAME).allowMainThreadQueries().build();
         }
-        return INSTANCE;
+        return instance;
     }
+
 
 }

@@ -1,6 +1,5 @@
 package Dao;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -15,18 +14,27 @@ import Model.Assessment;
 public interface AssessmentDao {
 
     @Query("SELECT * FROM assessment_table WHERE id = :assessmentId")
-    LiveData<Assessment> getAssessment(Integer assessmentId);
+    Assessment getAssessment(Integer assessmentId);
+
+    @Query("SELECT * FROM assessment_table ORDER BY id")
+    List<Assessment> getAllAssessments();
 
     @Query("SELECT * FROM assessment_table WHERE courseId = :courseId")
-    LiveData<List<Assessment>> getAssessmentsForCourse(Integer courseId);
+    List<Assessment> getAssessmentsForCourse(Integer courseId);
 
-    @Insert(entity = Assessment.class)
+    @Insert
     void insert(Assessment assessment);
 
-    @Update(entity = Assessment.class)
+    @Insert
+    void insertAllAssessments(Assessment... assessments);
+
+    @Update
     void update(Assessment assessment);
 
-    @Delete(entity = Assessment.class)
+    @Delete
     void delete(Assessment assessment);
+
+    @Query("DELETE FROM assessment_table")
+    void deleteAllAssessments();
 
 }
