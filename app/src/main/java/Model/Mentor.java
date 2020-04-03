@@ -30,27 +30,27 @@ public class Mentor {
         this.id = id;
     }
 
-    public String getmName() {
+    public String getMName() {
         return mName;
     }
 
-    public void setmName(String mName) {
+    public void setMName(String mName) {
         this.mName = mName;
     }
 
-    public String getmPhone() {
+    public String getMPhone() {
         return mPhone;
     }
 
-    public void setmPhone(String mPhone) {
+    public void setMPhone(String mPhone) {
         this.mPhone = mPhone;
     }
 
-    public String getmEmail() {
+    public String getMEmail() {
         return mEmail;
     }
 
-    public void setmEmail(String email) {
+    public void setMEmail(String email) {
         this.mEmail = email;
     }
 

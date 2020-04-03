@@ -32,19 +32,19 @@ public class Note {
         this.id = id;
     }
 
-    public String getmNote() {
+    public String getMNote() {
         return mNote;
     }
 
-    public void setmNote(String mNote) {
+    public void setMNote(String mNote) {
         this.mNote = mNote;
     }
 
-    public int getmAssessmentId() {
+    public int getMAssessmentId() {
         return mAssessmentId;
     }
 
-    public void setmAssessmentId(int mAssessmentId) {
+    public void setMAssessmentId(int mAssessmentId) {
         this.mAssessmentId = mAssessmentId;
     }
 }

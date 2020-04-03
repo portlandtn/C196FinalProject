@@ -7,7 +7,7 @@ import androidx.room.TypeConverters;
 
 import java.util.Date;
 
-import DataProvider.Converter;
+import DataProvider.DateTimeConverter;
 
 @Entity(tableName = "term_table")
 public class Term {
@@ -18,13 +18,14 @@ public class Term {
     @ColumnInfo(name = "title")
     private String mTitle;
 
-    @TypeConverters(Converter.class)
+    @TypeConverters(DateTimeConverter.class)
     @ColumnInfo(name = "start_date")
     private Date mStartDate;
 
-    @TypeConverters(Converter.class)
+    @TypeConverters(DateTimeConverter.class)
     @ColumnInfo(name = "end_date")
     private Date mEndDate;
+
 
     public Integer getId() {
         return id;
@@ -34,27 +35,27 @@ public class Term {
         this.id = id;
     }
 
-    public String getmTitle() {
+    public String getMTitle() {
         return mTitle;
     }
 
-    public void setmTitle(String mTitle) {
+    public void setMTitle(String mTitle) {
         this.mTitle = mTitle;
     }
 
-    public Date getmStartDate() {
+    public Date getMStartDate() {
         return mStartDate;
     }
 
-    public void setmStartDate(Date mStartDate) {
+    public void setMStartDate(Date mStartDate) {
         this.mStartDate = mStartDate;
     }
 
-    public Date getmEndDate() {
+    public Date getMEndDate() {
         return mEndDate;
     }
 
-    public void setmEndDate(Date mEndDate) {
+    public void setMEndDate(Date mEndDate) {
         this.mEndDate = mEndDate;
     }
 }

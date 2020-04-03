@@ -9,7 +9,8 @@ import androidx.room.TypeConverters;
 
 import java.util.Date;
 
-import DataProvider.Converter;
+import DataProvider.CourseStatusConverter;
+import DataProvider.DateTimeConverter;
 import DataProvider.CourseStatus;
 
 @Entity(tableName = "course_table", foreignKeys = {
@@ -31,15 +32,15 @@ public class Course {
     @ColumnInfo(name = "title")
     private String mTitle;
 
-    @TypeConverters(Converter.class)
+    @TypeConverters(DateTimeConverter.class)
     @ColumnInfo(name = "start_date")
     private Date mStartDate;
 
-    @TypeConverters(Converter.class)
+    @TypeConverters(DateTimeConverter.class)
     @ColumnInfo(name = "end_date")
     private Date mEndDate;
 
-    @TypeConverters(Converter.class)
+    @TypeConverters(CourseStatusConverter.class)
     @ColumnInfo(name = "course_status")
     private CourseStatus mStatus;
 
@@ -54,51 +55,51 @@ public class Course {
         return id;
     }
 
-    public String getmTitle() {
+    public String getMTitle() {
         return mTitle;
     }
 
-    public void setmTitle(String mTitle) {
+    public void setMTitle(String mTitle) {
         this.mTitle = mTitle;
     }
 
-    public Date getmStartDate() {
+    public Date getMStartDate() {
         return mStartDate;
     }
 
-    public void setmStartDate(Date mStartDate) {
+    public void setMStartDate(Date mStartDate) {
         this.mStartDate = mStartDate;
     }
 
-    public Date getmEndDate() {
+    public Date getMEndDate() {
         return mEndDate;
     }
 
-    public void setmEndDate(Date mEndDate) {
+    public void setMEndDate(Date mEndDate) {
         this.mEndDate = mEndDate;
     }
 
-    public CourseStatus getmStatus() {
+    public CourseStatus getMStatus() {
         return mStatus;
     }
 
-    public void setmStatus(CourseStatus mStatus) {
+    public void setMStatus(CourseStatus mStatus) {
         this.mStatus = mStatus;
     }
 
-    public int getmTermId() {
+    public int getMTermId() {
         return mTermId;
     }
 
-    public void setmTermId(int mTermId) {
+    public void setMTermId(int mTermId) {
         this.mTermId = mTermId;
     }
 
-    public int getmMentorId() {
+    public int getMMentorId() {
         return mMentorId;
     }
 
-    public void setmMentorId(int mMentorId) {
+    public void setMMentorId(int mMentorId) {
         this.mMentorId = mMentorId;
     }
 

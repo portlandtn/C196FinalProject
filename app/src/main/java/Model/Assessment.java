@@ -10,7 +10,8 @@ import androidx.room.TypeConverters;
 import java.util.Date;
 
 import DataProvider.AssessmentStatus;
-import DataProvider.Converter;
+import DataProvider.AssessmentStatusConverter;
+import DataProvider.DateTimeConverter;
 
 @Entity(tableName ="assessment_table",
         foreignKeys = @ForeignKey(entity = Course.class,
@@ -27,18 +28,18 @@ public class Assessment {
     @ColumnInfo(name = "title")
     private String mTitle;
 
-    @TypeConverters(Converter.class)
+    @TypeConverters(DateTimeConverter.class)
     @ColumnInfo(name = "start_date")
     private Date mStartDate;
 
-    @TypeConverters(Converter.class)
+    @TypeConverters(DateTimeConverter.class)
     @ColumnInfo(name = "end_date")
     private Date mEndDate;
 
     @ColumnInfo(name = "courseId")
     private int mCourseId;
 
-    @TypeConverters(Converter.class)
+    @TypeConverters(AssessmentStatusConverter.class)
     @ColumnInfo(name = "assessment_status")
     private AssessmentStatus mStatus;
 
@@ -50,43 +51,43 @@ public class Assessment {
         this.id = id;
     }
 
-    public String getmTitle() {
+    public String getMTitle() {
         return mTitle;
     }
 
-    public void setmTitle(String mTitle) {
+    public void setMTitle(String mTitle) {
         this.mTitle = mTitle;
     }
 
-    public Date getmStartDate() {
+    public Date getMStartDate() {
         return mStartDate;
     }
 
-    public void setmStartDate(Date mStartDate) {
+    public void setMStartDate(Date mStartDate) {
         this.mStartDate = mStartDate;
     }
 
-    public Date getmEndDate() {
+    public Date getMEndDate() {
         return mEndDate;
     }
 
-    public void setmEndDate(Date mEndDate) {
+    public void setMEndDate(Date mEndDate) {
         this.mEndDate = mEndDate;
     }
 
-    public int getmCourseId() {
+    public int getMCourseId() {
         return mCourseId;
     }
 
-    public void setmCourseId(int mCourseId) {
+    public void setMCourseId(int mCourseId) {
         this.mCourseId = mCourseId;
     }
 
-    public AssessmentStatus getmStatus() {
+    public AssessmentStatus getMStatus() {
         return mStatus;
     }
 
-    public void setmStatus(AssessmentStatus mStatus) {
+    public void setMStatus(AssessmentStatus mStatus) {
         this.mStatus = mStatus;
     }
 }

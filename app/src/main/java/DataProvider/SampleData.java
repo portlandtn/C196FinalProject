@@ -37,7 +37,7 @@ public class SampleData extends AppCompatActivity {
 
     WGUTermRoomDatabase db;
 
-    public void populateData(Context context) {
+    public void populateDatabaseWithSampleData(Context context) {
         db = WGUTermRoomDatabase.getDatabase(context);
 
         // order is important since some objects rely on others existing (foreign keys).
@@ -49,26 +49,37 @@ public class SampleData extends AppCompatActivity {
 
     }
 
+    public void deleteAllDataFromDatabase(Context context) {
+        db = WGUTermRoomDatabase.getDatabase(context);
+
+        // order is important. Dependencies (foreign keys)
+        db.noteDao().deleteAllNotes();
+        db.mentorDao().deleteAllMentors();
+        db.assessmentDao().deleteAllAssessments();
+        db.courseDao().deleteAllCourses();
+        db.termDao().deleteAllTerms();
+    }
+
     private void populateTerms() {
         Calendar start = Calendar.getInstance();
         Calendar end = Calendar.getInstance();
 
         end.add(Calendar.MONTH, 6);
-        term1.setmTitle("Spring 2020");
-        term1.setmStartDate(start.getTime());
-        term1.setmEndDate(end.getTime());
+        term1.setMTitle("Spring 2020");
+        term1.setMStartDate(start.getTime());
+        term1.setMEndDate(end.getTime());
 
         start.add(Calendar.MONTH, 6);
         end.add(Calendar.MONTH, 6);
-        term2.setmTitle("Fall 2020");
-        term2.setmStartDate(start.getTime());
-        term2.setmEndDate(end.getTime());
+        term2.setMTitle("Fall 2020");
+        term2.setMStartDate(start.getTime());
+        term2.setMEndDate(end.getTime());
 
         start.add(Calendar.MONTH, 6);
         end.add(Calendar.MONTH, 6);
-        term3.setmTitle("Spring 2021");
-        term3.setmStartDate(start.getTime());
-        term3.setmEndDate(end.getTime());
+        term3.setMTitle("Spring 2021");
+        term3.setMStartDate(start.getTime());
+        term3.setMEndDate(end.getTime());
 
         db.termDao().insertAllTerms(term1, term2, term3);
     }
@@ -79,28 +90,28 @@ public class SampleData extends AppCompatActivity {
         Calendar end = Calendar.getInstance();
 
         end.add(Calendar.MONTH, 2);
-        course1.setmTitle("Biology 101");
-        course1.setmStartDate(start.getTime());
-        course1.setmEndDate(end.getTime());
-        course1.setmTermId(term1.getId());
-        course1.setmMentorId(mentor1.getId());
-        course1.setmStatus(CourseStatus.PLAN_TO_TAKE);
+        course1.setMTitle("Biology 101");
+        course1.setMStartDate(start.getTime());
+        course1.setMEndDate(end.getTime());
+        course1.setMTermId(term1.getId());
+        course1.setMMentorId(mentor1.getId());
+        course1.setMStatus(CourseStatus.PLAN_TO_TAKE);
 
         start.add(Calendar.MONTH, 2);
         end.add(Calendar.MONTH, 2);
-        course2.setmTitle("Math 518");
-        course2.setmStartDate(start.getTime());
-        course2.setmEndDate(end.getTime());
-        course2.setmTermId(term1.getId());
-        course2.setmMentorId(mentor1.getId());
+        course2.setMTitle("Math 518");
+        course2.setMStartDate(start.getTime());
+        course2.setMEndDate(end.getTime());
+        course2.setMTermId(term1.getId());
+        course2.setMMentorId(mentor1.getId());
 
         start.add(Calendar.MONTH, 2);
         end.add(Calendar.MONTH, 2);
-        course3.setmTitle("Computer Science 165");
-        course3.setmStartDate(start.getTime());
-        course3.setmEndDate(end.getTime());
-        course3.setmTermId(term2.getId());
-        course3.setmMentorId(mentor2.getId());
+        course3.setMTitle("Computer Science 165");
+        course3.setMStartDate(start.getTime());
+        course3.setMEndDate(end.getTime());
+        course3.setMTermId(term2.getId());
+        course3.setMMentorId(mentor2.getId());
 
         db.courseDao().insertAllCourses(course1, course2, course3);
 
@@ -112,58 +123,59 @@ public class SampleData extends AppCompatActivity {
         Calendar end = Calendar.getInstance();
 
         end.add(Calendar.DATE, 6);
-        assessment1.setmTitle("First Attempt");
-        assessment1.setmStartDate(start.getTime());
-        assessment1.setmEndDate(end.getTime());
-        assessment1.setmCourseId(course1.getId());
+        assessment1.setMTitle("First Attempt");
+        assessment1.setMStartDate(start.getTime());
+        assessment1.setMEndDate(end.getTime());
+        assessment1.setMCourseId(course1.getId());
 
         start.add(Calendar.DATE, 6);
         end.add(Calendar.DATE, 6);
-        assessment2.setmTitle("Second Attempt");
-        assessment2.setmStartDate(start.getTime());
-        assessment2.setmEndDate(end.getTime());
-        assessment2.setmCourseId(course1.getId());
+        assessment2.setMTitle("Second Attempt");
+        assessment2.setMStartDate(start.getTime());
+        assessment2.setMEndDate(end.getTime());
+        assessment2.setMCourseId(course1.getId());
 
         start.add(Calendar.DATE, 6);
         end.add(Calendar.DATE, 6);
-        assessment3.setmTitle("Another Attempt");
-        assessment3.setmStartDate(start.getTime());
-        assessment3.setmEndDate(end.getTime());
-        assessment3.setmCourseId(course3.getId());
+        assessment3.setMTitle("Another Attempt");
+        assessment3.setMStartDate(start.getTime());
+        assessment3.setMEndDate(end.getTime());
+        assessment3.setMCourseId(course3.getId());
 
 
         db.assessmentDao().insertAllAssessments(assessment1, assessment2, assessment3);
     }
 
     private void populateMentors() {
-        mentor1.setmName("Amanda Huginkiss");
-        mentor1.setmPhone("270-493-8182");
-        mentor2.setmEmail("man2hugNkiss@fakeNews.com");
+        mentor1.setMName("Amanda Huginkiss");
+        mentor1.setMPhone("270-493-8182");
+        mentor2.setMEmail("man2hugNkiss@fakeNews.com");
 
-        mentor2.setmName("Hugh Jazz");
-        mentor2.setmPhone("850-941-9099");
-        mentor2.setmEmail("HubertJazz@fakeNews.com");
+        mentor2.setMName("Hugh Jazz");
+        mentor2.setMPhone("850-941-9099");
+        mentor2.setMEmail("HubertJazz@fakeNews.com");
 
-        mentor3.setmName("Mein Utzich");
-        mentor3.setmPhone("978-493-4958");
-        mentor3.setmEmail("butnotreally@fakeNews.com");
+        mentor3.setMName("Mein Utzich");
+        mentor3.setMPhone("978-493-4958");
+        mentor3.setMEmail("butnotreally@fakeNews.com");
 
         db.mentorDao().insertAllMentors(mentor1, mentor2, mentor3);
 
     }
 
     private void populateNotes() {
-        note1.setmNote("This is a test note. Shouldn't do much more than this.");
-        note1.setmAssessmentId(assessment1.getId());
+        note1.setMNote("This is a test note. Shouldn't do much more than this.");
+        note1.setMAssessmentId(assessment1.getId());
 
-        note2.setmNote("Another test note for another assessment. This assessment is horrible!");
-        note2.setmAssessmentId(assessment3.getId());
+        note2.setMNote("Another test note for another assessment. This assessment is horrible!");
+        note2.setMAssessmentId(assessment3.getId());
 
-        note3.setmNote("Yet one more note test for the assessments.");
-        note3.setmAssessmentId(assessment3.getId());
+        note3.setMNote("Yet one more note test for the assessments.");
+        note3.setMAssessmentId(assessment3.getId());
 
         db.noteDao().insertAllNotes(note1, note2, note3);
 
     }
+
 
 }
