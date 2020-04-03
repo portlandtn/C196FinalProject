@@ -6,6 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/failedCoursesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/failed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/droppedTextView" />
+
+    <TextView
+        android:id="@+id/failedCoursesCountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/dummyNumber"
+        app:layout_constraintStart_toEndOf="@+id/failedCoursesTextView"
+        app:layout_constraintTop_toBottomOf="@+id/droppedCountTextView" />
+
     <Button
         android:id="@+id/termsButton"
         android:layout_width="match_parent"
@@ -17,9 +39,37 @@
         android:layout_marginBottom="8dp"
         android:onClick="showTermsActivity"
         android:text="@string/termsButton"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/createSampleDataButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/createSampleDataButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="createSampleData"
+        android:text="@string/create_sample_data"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/clearDatabaseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="clearDataBase"
+        android:text="@string/clear_data_base"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/coursesTextView"
@@ -51,7 +101,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="10"
+        android:text="@string/dummyNumber"
         app:layout_constraintStart_toEndOf="@+id/inProgressTextView"
         app:layout_constraintTop_toBottomOf="@+id/coursesTextView" />
 
@@ -62,7 +112,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="10"
+        android:text="@string/dummyNumber"
         app:layout_constraintStart_toEndOf="@+id/inProgressAssessmentTextView"
         app:layout_constraintTop_toBottomOf="@+id/assessmentsTextView" />
 
@@ -73,19 +123,19 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="10"
+        android:text="@string/dummyNumber"
         app:layout_constraintStart_toEndOf="@+id/passedTextView"
         app:layout_constraintTop_toBottomOf="@+id/inProgressAssessmentCountTextView" />
 
     <TextView
-        android:id="@+id/failedCountTextView"
+        android:id="@+id/failedAssessmentsCountTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="10"
-        app:layout_constraintStart_toEndOf="@+id/failedTextView"
+        android:text="@string/dummyNumber"
+        app:layout_constraintStart_toEndOf="@+id/failedAssessmentsTextView"
         app:layout_constraintTop_toBottomOf="@+id/passedCountTextView" />
 
     <TextView
@@ -106,7 +156,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="10"
+        android:text="@string/dummyNumber"
         app:layout_constraintStart_toEndOf="@+id/completedTextView"
         app:layout_constraintTop_toBottomOf="@+id/inProgressCountTextView" />
 
@@ -117,7 +167,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="10"
+        android:text="@string/dummyNumber"
         app:layout_constraintStart_toEndOf="@+id/droppedTextView"
         app:layout_constraintTop_toBottomOf="@+id/completedCountTextView" />
 
@@ -142,7 +192,7 @@
         android:text="@string/assessments"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/droppedTextView" />
+        app:layout_constraintTop_toBottomOf="@id/failedCoursesTextView" />
 
     <TextView
         android:id="@+id/inProgressAssessmentTextView"
@@ -167,7 +217,7 @@
         app:layout_constraintTop_toBottomOf="@+id/inProgressAssessmentTextView" />
 
     <TextView
-        android:id="@+id/failedTextView"
+        android:id="@+id/failedAssessmentsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

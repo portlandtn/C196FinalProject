@@ -11,4 +11,7 @@
     <string name="passed">Passed:</string>
     <string name="failed">Failed</string>
     <string name="assessments">Assessments</string>
+    <string name="create_sample_data">Create Sample Data</string>
+    <string name="clear_data_base">Clear Data Base</string>
+    <string name="dummyNumber">10</string>
 </resources>

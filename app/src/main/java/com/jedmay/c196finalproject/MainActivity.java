@@ -8,6 +8,15 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        updateList();
+    }
+
+    private void updateList() {
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -15,5 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void showTermsActivity(View view) {
 
+    }
+
+    public void createSampleData(View view) {
+    }
+
+    public void clearDataBase(View view) {
     }
 }
