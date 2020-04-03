@@ -13,7 +13,7 @@ import DataProvider.DateTimeConverter;
 public class Term {
 
     @PrimaryKey(autoGenerate = true)
-    private Integer id;
+    private int id;
 
     @ColumnInfo(name = "title")
     private String mTitle;
@@ -27,11 +27,11 @@ public class Term {
     private Date mEndDate;
 
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 

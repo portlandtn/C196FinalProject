@@ -1,5 +1,6 @@
 package DataProvider;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import Model.Mentor;
 import Model.Note;
 import Model.Term;
 
+@SuppressLint("Registered")
 public class SampleData extends AppCompatActivity {
 
     Term term1 = new Term();
@@ -93,7 +95,9 @@ public class SampleData extends AppCompatActivity {
         course1.setMTitle("Biology 101");
         course1.setMStartDate(start.getTime());
         course1.setMEndDate(end.getTime());
-        course1.setMTermId(term1.getId());
+        course1.setMTermId(1);
+
+        //        course1.setMTermId(term1.getId());
         course1.setMMentorId(mentor1.getId());
         course1.setMStatus(CourseStatus.PLAN_TO_TAKE);
 
@@ -102,6 +106,8 @@ public class SampleData extends AppCompatActivity {
         course2.setMTitle("Math 518");
         course2.setMStartDate(start.getTime());
         course2.setMEndDate(end.getTime());
+       // course2.setMTermId(1);
+
         course2.setMTermId(term1.getId());
         course2.setMMentorId(mentor1.getId());
 
@@ -110,7 +116,9 @@ public class SampleData extends AppCompatActivity {
         course3.setMTitle("Computer Science 165");
         course3.setMStartDate(start.getTime());
         course3.setMEndDate(end.getTime());
-        course3.setMTermId(term2.getId());
+        course3.setMTermId(2);
+
+//        course3.setMTermId(term2.getId());
         course3.setMMentorId(mentor2.getId());
 
         db.courseDao().insertAllCourses(course1, course2, course3);

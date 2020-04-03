@@ -17,7 +17,7 @@ import Model.Mentor;
 import Model.Note;
 import Model.Term;
 
-@Database(entities = {Assessment.class, Course.class, Mentor.class, Note.class, Term.class}, version = 1, exportSchema = false)
+@Database(entities = {Assessment.class, Course.class, Mentor.class, Note.class, Term.class}, version = 2, exportSchema = false)
 public abstract class WGUTermRoomDatabase extends RoomDatabase {
 
     public abstract AssessmentDao assessmentDao();
